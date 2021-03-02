@@ -113,3 +113,29 @@
   - 后置处理器的postProcessorBeforeInitailization方法是在bean实例化，依赖注入之后及自定义初始化方法(例如：配置文件中bean标签添加init-method属性指定Java类中初始化方法、
     @PostConstruct注解指定初始化方法，Java类实现InitailztingBean接口)之前调用
   - 后置处理器的postProcessorAfterInitailization方法是在bean实例化、依赖注入及自定义初始化方法之后调用
+  
+- Spring对事务的支持
+
+  - Spring本身并不直接管理事务，而是提供了事务管理器接口，对于不同的框架或者数据源则用不同的事务管理器；而对于事务，它把相关的属性都封装到一个实体里面，有以下属性：
+
+    `int propagationBehavior //事务传播行为`
+
+    `int isolationLevel //事务隔离级别`
+
+    `int timeout//事务完成的最短时间`
+
+    `boolean readOnly //是否只读`
+
+  - Spring提供了对编程式事务和声明式事务的支持，编程式事务是嵌在业务代码里面的，而声明式事务是基于xml文件配置的。
+
+  - readOnly：事务隔离级别的一种，标识只读数据，不更新数据
+
+  - 事务传播机制
+
+    - progation_required:支持当前的事务，如果没有当前事务，就新建一个事务，这是最常见的选择
+    - propagation_supports:支持当前的事务，如果没有当前事务，就以非事务的方式执行
+    - propagation_mandatory:支持当前事务，如果没有当前事务，就抛出异常
+    - propagation_requires_new:支持当前事务，如果没有当前事务，就把当前事务挂起
+    - propagation_not_supported：以非事务方式执行，如果当前存在事务，就把当前事务挂起
+    - propagation_never：以非事务方式执行，如果存在当前事务，就抛出异常
+

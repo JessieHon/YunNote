@@ -10,6 +10,9 @@
   - 停止所有java进程命令：`pkill - 9 java`
   
 - 查看当前机器负载：Linux的负载高，主要是由于CPU使用、内存使用、IO消耗三部分构成。任意一项使用过多，都将导致服务器负载的急剧攀升。
+  
+- uptime和top都可以用来你查看机器负载，区别：uptime还显示开机时间，top主要显示当前系统的资源使用情况，相当于任务管理器。
+  
   - `uptime`
   - `w`
   - ![image-20201122174307800](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20201122174307800.png)
@@ -19,7 +22,7 @@
   
   - ![img](https://img-blog.csdn.net/20140809122156703?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3pjaHR4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
   
-- netstat：用来查看端口情况
+- netstat：用于显示与IP、TCP、UDP和ICMP协议相关的统计数据，一般用于检验本机各端口的网络连接情况
 
   - netstat -ntlp//查看当前所有的tcp端口
   
@@ -31,6 +34,8 @@
     netstat -ntulp | grep 3306   //查看所有3306端口使用情况
     ```
   
+- ifconfig用来显示或者配置网络设备（网络接口卡的命令）
+
 - 打开指定端口
 
 - awk命令：是一种处理文本文件的语言，是一个强大的文本分析工具
